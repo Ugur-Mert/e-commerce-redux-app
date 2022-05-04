@@ -6,7 +6,8 @@ const url = "https://fakestoreapi.com/products";
 
 const initialState = {
   cardItems: [],
-  isLoading: true,
+  amount: 5,
+  isLoading: false,
 };
 
 export const getProductItems = createAsyncThunk(

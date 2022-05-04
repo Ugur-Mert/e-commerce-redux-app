@@ -1,14 +1,14 @@
 import { useDispatch } from "react-redux";
-
+import "./CardItem.css";
 const CardItem = ({ id, image, title, price }) => {
   return (
-    <article className="card-item">
-      <img src={image} alt={title} />
-      <div>
-        <h4>{title}</h4>
-        <h4>${price}</h4>
+    <div className="card-item">
+      <div className="card-image-container">
+        <img className="card-image" src={image} alt={title} />
       </div>
-    </article>
+      <h4>{title.slice(0, 20)}...</h4>
+      <h4>${price}</h4>
+    </div>
   );
 };
 

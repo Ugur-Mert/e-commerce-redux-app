@@ -1,0 +1,32 @@
+.card-item {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  width: 250px;
+  height: 280px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+.card-image {
+  margin-top: 10px;
+  height: 150px;
+  width: 100px;
+}
+.card-image-container :hover {
+  z-index: 100;
+  animation: scale 0.4s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
