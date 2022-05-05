@@ -6,7 +6,7 @@ const url = "https://fakestoreapi.com/products";
 
 const initialState = {
   cardItems: [],
-  amount: 5,
+  amount: 0,
   isLoading: false,
 };
 

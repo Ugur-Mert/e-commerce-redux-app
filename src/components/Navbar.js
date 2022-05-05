@@ -1,22 +1,34 @@
 import { useSelector } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const amount = useSelector((store) => store.card.amount);
+  const [term, setTerm] = useState("");
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(term);
+  };
   return (
     <nav>
       <div className="navbar">
-        <h3>Lets Shop!</h3>
+        <Link to="/">
+          <h3>Let's Shop!</h3>
+        </Link>
         <div className="nav-search">
-          <input
-            className="search-input"
-            type={"text"}
-            placeholder="Search..."
-            //onChange={handleSearch}
-            //value={search}
-          />
-          <FaSearch />
+          <form onSubmit={submitHandler}>
+            <input
+              className="search-input"
+              type={"text"}
+              placeholder="Search..."
+              onChange={(e) => setTerm(e.target.value)}
+              value={term}
+            />
+            <button type="submit">
+              <FaSearch />
+            </button>
+          </form>
         </div>
         <div className="nav-container">
           <FaShoppingCart className="nav-icon" />
@@ -29,8 +41,8 @@ const Navbar = () => {
         <p>MEN</p>
         <p>WOMEN</p>
         <p>ALL</p>
-        <p>ELECTRONİCS</p>
-        <p>JEWELERY</p>
+        <p>ELECTRONICS</p>
+        <p>JEWELRY</p>
       </div>
     </nav>
   );
