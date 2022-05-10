@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar">
-        <Link to="/">
+        <Link className="link" to="/">
           <h3>Let's Shop!</h3>
         </Link>
         <div className="nav-search">
@@ -31,10 +31,12 @@ const Navbar = () => {
           </form>
         </div>
         <div className="nav-container">
-          <FaShoppingCart className="nav-icon" />
-          <div className="amount-container">
-            <p className="total-amount">{amount}</p>
-          </div>
+          <Link className="link" to="cart">
+            <FaShoppingCart className="nav-icon" />
+            <div className="amount-container">
+              <p className="total-amount">{amount}</p>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="nav-sub-links">

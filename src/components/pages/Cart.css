@@ -1,0 +1,23 @@
+.cart {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 10px 20px;
+  text-align: center;
+}
+.cart-image {
+  width: 100px;
+  justify-content: center;
+  justify-self: center;
+}
+.cart-title {
+  text-align: left;
+}
+hr {
+  border-color: rgb(39, 36, 36);
+  border-width: 0.25px;
+  width: 1200px;
+}
+.total {
+  text-align: right;
+}

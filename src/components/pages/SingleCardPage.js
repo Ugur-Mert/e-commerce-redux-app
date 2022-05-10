@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const SingleCardPage = ({ image, title, price, description }) => {
+const SingleCardPage = () => {
   const { singlePageItems } = useSelector((store) => store.cardPage);
 
   return (

@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 //const params = useParams();${params.productId}
 const url = `https://fakestoreapi.com/products/1`;
 
 const initialState = {
   singlePageItems: [],
-
   isLoadingPage: false,
 };
 

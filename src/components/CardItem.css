@@ -2,8 +2,8 @@
   display: grid;
   justify-items: center;
   text-align: center;
+  height: 100%;
   width: 250px;
-  height: 280px;
   border: 1px solid #000000;
   border-radius: 8px;
   background-color: white;
@@ -29,4 +29,19 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.rate-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button {
+  margin-bottom: 15px;
+  cursor: pointer;
 }
