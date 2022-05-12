@@ -1,7 +1,7 @@
 .cart {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin: 10px 20px;
   text-align: center;
 }
@@ -18,6 +18,11 @@ hr {
   border-width: 0.25px;
   width: 1200px;
 }
-.total {
-  text-align: right;
+.cart-footer {
+  display: flex;
+  font-weight: 700;
+  justify-content: space-around;
+}
+.remove-btn {
+  cursor: pointer;
 }

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./CardItem.css";
 import SingleCardPage from "./pages/SingleCardPage";
 import { FaStar } from "react-icons/fa";
-
 import { addItem } from "../features/card/cardSlice";
 import { useDispatch } from "react-redux";
 
