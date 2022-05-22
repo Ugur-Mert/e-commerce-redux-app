@@ -7,7 +7,7 @@ import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 
 export const CartItem = ({ id, image, title, price }) => {
   const dispatch = useDispatch();
-  const { singleAmount } = useSelector((store) => store.card);
+  const { amount } = useSelector((store) => store.card);
   return (
     <div className="cart" key={id}>
       <img className="cart-image" src={image} alt={title} />
@@ -17,7 +17,7 @@ export const CartItem = ({ id, image, title, price }) => {
         <button onClick={() => dispatch(increase({ id }))}>
           <IoMdArrowDropup />
         </button>
-        <p className="amount">{singleAmount}</p>
+        <p className="amount">{amount}</p>
         <button onClick={() => dispatch(decrease({ id }))}>
           <IoMdArrowDropdown />
         </button>

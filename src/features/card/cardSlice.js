@@ -7,7 +7,7 @@ const url = "https://fakestoreapi.com/products";
 const initialState = {
   cardItems: [],
   cartItems: [],
-  amount: 5,
+  amount: 0,
   singleAmount: 1,
   total: 0,
   isLoading: false,
@@ -32,21 +32,24 @@ const cardSlice = createSlice({
       const itemId = action.payload;
       state.cartProduct = state.cardItems.filter((item) => item.id === itemId);
       state.cartItems = state.cartItems.concat(state.cartProduct);
+      state.amount = state.amount + 1;
     },
     clearCart: (state) => {
       state.cartItems = [];
+      state.amount = 0;
     },
     removeItem: (state, action) => {
       const itemId = action.payload;
       state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+      state.amount = state.amount - 1;
     },
     increase: (state, { payload }) => {
       state.cartItems.find((item) => item.id === payload.id);
-      state.singleAmount = state.singleAmount + 1;
+      state.amount = state.amount + 1;
     },
     decrease: (state, { payload }) => {
       state.cartItems.find((item) => item.id === payload.id);
-      state.singleAmount = state.singleAmount - 1;
+      state.amount = state.amount - 1;
     },
     calculateTotal: (state) => {
       let amount = 0;
