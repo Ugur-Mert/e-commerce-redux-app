@@ -1,9 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { men, women, jewelery, electronics } from "../features/card/cardSlice";
+
 const Navbar = () => {
+  const dispatch = useDispatch();
   const amount = useSelector((store) => store.card.amount);
   const [term, setTerm] = useState("");
   const submitHandler = (e) => {
@@ -40,11 +43,30 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nav-sub-links">
-        <p>MEN</p>
-        <p>WOMEN</p>
-        <p>ALL</p>
-        <p>ELECTRONICS</p>
-        <p>JEWELRY</p>
+        <Link className="link" to="Category">
+          <button onClick={() => dispatch(men())} className="btn-nav">
+            MEN
+          </button>
+        </Link>
+        <Link className="link" to="Category">
+          <button onClick={() => dispatch(women())} className="btn-nav">
+            WOMEN
+          </button>
+        </Link>
+
+        <Link className="link" to="/">
+          <button className="btn-nav">ALL</button>
+        </Link>
+        <Link className="link" to="Category">
+          <button onClick={() => dispatch(electronics())} className="btn-nav">
+            ELECTRONICS
+          </button>
+        </Link>
+        <Link className="link" to="Category">
+          <button onClick={() => dispatch(jewelery())} className="btn-nav">
+            JEWELRY
+          </button>
+        </Link>
       </div>
     </nav>
   );

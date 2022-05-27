@@ -35,6 +35,19 @@
   align-items: center;
   font-size: 0.8rem;
   background-color: #fff6ea;
+  border: none none none none;
+}
+
+.btn-nav {
+  border: none;
+  cursor: pointer;
+  background-color: #fff6ea;
+  margin-bottom: 10px;
+}
+
+.btn-nav:hover {
+  background-color: antiquewhite;
+  border-radius: 10px;
 }
 
 .nav-search {

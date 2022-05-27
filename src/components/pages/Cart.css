@@ -26,3 +26,8 @@ hr {
 .remove-btn {
   cursor: pointer;
 }
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

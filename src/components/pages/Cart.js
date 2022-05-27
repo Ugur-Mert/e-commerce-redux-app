@@ -10,10 +10,11 @@ export const Cart = (id) => {
 
   if (amount < 1) {
     return (
-      <section className="cart">
+      <section className="cart-empty">
         <header>
           <h2>Your bag</h2>
           <h4 className="empty-cart">is currently empty.</h4>
+          <hr />
         </header>
       </section>
     );

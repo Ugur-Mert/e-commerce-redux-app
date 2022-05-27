@@ -7,9 +7,12 @@ const url = "https://fakestoreapi.com/products";
 const initialState = {
   cardItems: [],
   cartItems: [],
+  cardCategory: [],
   amount: 0,
   singleAmount: 1,
+  isClicked: false,
   total: 0,
+
   isLoading: false,
 };
 
@@ -51,16 +54,37 @@ const cardSlice = createSlice({
       state.cartItems.find((item) => item.id === payload.id);
       state.amount = state.amount - 1;
     },
-    calculateTotal: (state) => {
-      let amount = 0;
-      let total = 0;
-      state.cartItems.forEach((item) => {
-        amount += item.amount;
-        total += item.amount * item.price;
-      });
-      state.amount = amount;
-      state.total = total;
+    men: (state) => {
+      state.cardCategory = state.cardItems.filter(
+        (item) => item.category === "men's clothing"
+      );
     },
+    women: (state) => {
+      state.cardCategory = state.cardItems.filter(
+        (item) => item.category === "women's clothing"
+      );
+    },
+    jewelery: (state) => {
+      state.cardCategory = state.cardItems.filter(
+        (item) => item.category === "jewelery"
+      );
+    },
+    electronics: (state) => {
+      state.cardCategory = state.cardItems.filter(
+        (item) => item.category === "electronics"
+      );
+    },
+
+    // calculateTotal: (state) => {
+    //   let amount = 0;
+    //   let total = 0;
+    //   state.cartItems.forEach((item) => {
+    //     amount += item.amount;
+    //     total += item.amount * item.price;
+    //   });
+    //   state.amount = amount;
+    //   state.total = total;
+    // },
   },
   extraReducers: {
     [getProductItems.pending]: (state) => {
@@ -84,6 +108,10 @@ export const {
   decrease,
   clearCart,
   calculateTotal,
+  men,
+  women,
+  jewelery,
+  electronics,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;
