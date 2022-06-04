@@ -49,10 +49,18 @@ const cardSlice = createSlice({
     increase: (state, { payload }) => {
       state.cartItems.find((item) => item.id === payload.id);
       state.amount = state.amount + 1;
+      state.singleAmount = state.singleAmount + 1;
     },
     decrease: (state, { payload }) => {
       state.cartItems.find((item) => item.id === payload.id);
       state.amount = state.amount - 1;
+      state.singleAmount = state.singleAmount - 1;
+      if (state.singleAmount < 1) {
+        state.cartItems = state.cartItems.filter(
+          (item) => item.id !== payload.id
+        );
+        state.singleAmount = 1;
+      }
     },
     men: (state) => {
       state.cardCategory = state.cardItems.filter(
