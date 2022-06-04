@@ -33,7 +33,7 @@ const cardSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const itemId = action.payload;
-      state.cartProduct = state.cardItems.filter((item) => item.id === itemId);
+      state.cartProduct = state.cardItems.find((item) => item.id === itemId);
       state.cartItems = state.cartItems.concat(state.cartProduct);
       state.amount = state.amount + 1;
     },
@@ -99,7 +99,6 @@ const cardSlice = createSlice({
       state.isLoading = true;
     },
     [getProductItems.fulfilled]: (state, action) => {
-      console.log(action);
       state.isLoading = false;
       state.cardItems = action.payload;
     },

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { getProductItems } from "../src/features/card/cardSlice";
-
 import CardContainer from "./components/CardContainer";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
@@ -20,8 +19,8 @@ function App() {
 
   if (isLoading) {
     return (
-      <div>
-        <h1>Loading...</h1>
+      <div className="loading">
+        <div class="loader"></div>
       </div>
     );
   }
