@@ -1,13 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { removeItem, increase, decrease } from "../../features/card/cardSlice";
 import { FaTrash } from "react-icons/fa";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 
 export const CartItem = ({ id, image, title, price }) => {
   const dispatch = useDispatch();
-  const { singleAmount } = useSelector((store) => store.card);
 
   return (
     <div className="cart" key={id}>
@@ -18,7 +16,7 @@ export const CartItem = ({ id, image, title, price }) => {
         <button onClick={() => dispatch(increase({ id }))}>
           <IoMdArrowDropup />
         </button>
-        <p className="amount">{singleAmount}</p>
+        <p className="amount">{id.quantity}</p>
         <button onClick={() => dispatch(decrease({ id }))}>
           <IoMdArrowDropdown />
         </button>

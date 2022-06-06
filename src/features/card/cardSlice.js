@@ -9,10 +9,8 @@ const initialState = {
   cartItems: [],
   cardCategory: [],
   amount: 0,
-  singleAmount: 1,
   isClicked: false,
   total: 0,
-
   isLoading: false,
 };
 
@@ -33,10 +31,17 @@ const cardSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const itemId = action.payload;
-      state.cartProduct = state.cardItems.find((item) => item.id === itemId);
-      state.cartItems = state.cartItems.concat(state.cartProduct);
-      state.amount = state.amount + 1;
+
+      if (state.cartItems.find((item) => item.id === itemId)) {
+        state.amount = state.amount + 1;
+      } else {
+        state.cartItems.push(
+          state.cardItems.find((item) => item.id === itemId)
+        );
+        state.amount = state.amount + 1;
+      }
     },
+
     clearCart: (state) => {
       state.cartItems = [];
       state.amount = 0;
@@ -83,16 +88,16 @@ const cardSlice = createSlice({
       );
     },
 
-    // calculateTotal: (state) => {
-    //   let amount = 0;
-    //   let total = 0;
-    //   state.cartItems.forEach((item) => {
-    //     amount += item.amount;
-    //     total += item.amount * item.price;
-    //   });
-    //   state.amount = amount;
-    //   state.total = total;
-    // },
+    calculateTotal: (state) => {
+      let amount = 0;
+      let total = 0;
+      state.cartItems.forEach((item) => {
+        amount += item.amount;
+        total += item.amount * item.price;
+      });
+      state.amount = amount;
+      state.total = total;
+    },
   },
   extraReducers: {
     [getProductItems.pending]: (state) => {
