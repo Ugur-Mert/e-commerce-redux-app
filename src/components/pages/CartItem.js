@@ -4,7 +4,7 @@ import { removeItem, increase, decrease } from "../../features/card/cardSlice";
 import { FaTrash } from "react-icons/fa";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 
-export const CartItem = ({ id, image, title, price }) => {
+export const CartItem = ({ id, image, title, price, quantity }) => {
   const dispatch = useDispatch();
 
   return (
@@ -16,7 +16,7 @@ export const CartItem = ({ id, image, title, price }) => {
         <button onClick={() => dispatch(increase({ id }))}>
           <IoMdArrowDropup />
         </button>
-        <p className="amount">{id.quantity}</p>
+        <p className="amount">{quantity}</p>
         <button onClick={() => dispatch(decrease({ id }))}>
           <IoMdArrowDropdown />
         </button>

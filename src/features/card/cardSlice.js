@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 import axios from "axios";
 
 const url = "https://fakestoreapi.com/products";
@@ -39,6 +38,19 @@ const cardSlice = createSlice({
           state.cardItems.find((item) => item.id === itemId)
         );
         state.amount = state.amount + 1;
+        //state.cartItems.forEach((item) => console.log(item.price));
+        // state.cartItems.for((item) => {
+        //   item.quantity = 1;
+        //   state.cartItems.push(item.quantity);
+        //   console.log(item.quantity);
+        // });
+
+        // for (let i = 0; i === state.cartItems.length; i++) {
+        //   //state.cartItems[i].push({ cartQuantity: cartQuantity });
+
+        // }
+
+        state.cardItems.map((obj) => (obj.quantity = 1));
       }
     },
 
@@ -52,9 +64,11 @@ const cardSlice = createSlice({
       state.amount = state.amount - 1;
     },
     increase: (state, { payload }) => {
-      state.cartItems.find((item) => item.id === payload.id);
-      state.amount = state.amount + 1;
-      state.singleAmount = state.singleAmount + 1;
+      if (state.cartItems.filter((item) => item.id === payload.id)) {
+        state.amount = state.amount + 1;
+        //state.cartItems[payload.id - 1].quantity++;
+        state.cartItems[payload.id - 1].quantity++;
+      }
     },
     decrease: (state, { payload }) => {
       state.cartItems.find((item) => item.id === payload.id);
