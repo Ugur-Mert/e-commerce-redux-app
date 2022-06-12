@@ -32,24 +32,16 @@ const cardSlice = createSlice({
       const itemId = action.payload;
 
       if (state.cartItems.find((item) => item.id === itemId)) {
+        const cartItem = state.cartItems.find(
+          (item) => item.id === action.payload
+        );
+        cartItem.quantity = cartItem.quantity + 1;
         state.amount = state.amount + 1;
       } else {
         state.cartItems.push(
           state.cardItems.find((item) => item.id === itemId)
         );
         state.amount = state.amount + 1;
-        //state.cartItems.forEach((item) => console.log(item.price));
-        // state.cartItems.for((item) => {
-        //   item.quantity = 1;
-        //   state.cartItems.push(item.quantity);
-        //   console.log(item.quantity);
-        // });
-
-        // for (let i = 0; i === state.cartItems.length; i++) {
-        //   //state.cartItems[i].push({ cartQuantity: cartQuantity });
-
-        // }
-
         state.cardItems.map((obj) => (obj.quantity = 1));
       }
     },
@@ -66,12 +58,7 @@ const cardSlice = createSlice({
       state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
       state.amount = state.amount - cartItem.quantity;
     },
-    // increase: (state, { payload }) => {
-    //   if (state.cartItems.find((item) => item.id === payload.id)) {
-    //     state.amount = state.amount + 1;
-    //     state.cartItems[payload.id - 1].quantity++;
-    //   }
-    // },
+
     increase: (state, { payload }) => {
       const cartItem = state.cartItems.find((item) => item.id === payload.id);
       cartItem.quantity = cartItem.quantity + 1;
@@ -112,8 +99,8 @@ const cardSlice = createSlice({
       let amount = 0;
       let total = 0;
       state.cartItems.forEach((item) => {
-        amount += item.amount;
-        total += item.amount * item.price;
+        amount += item.quantity;
+        total += item.quantity * item.price;
       });
       state.amount = amount;
       state.total = total;

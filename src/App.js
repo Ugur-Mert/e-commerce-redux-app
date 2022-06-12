@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import { getProductItems } from "../src/features/card/cardSlice";
+import {
+  calculateTotal,
+  getProductItems,
+} from "../src/features/card/cardSlice";
 import CardContainer from "./components/CardContainer";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
@@ -12,10 +15,15 @@ function App() {
   const { isLoading } = useSelector((state) => state.card);
 
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.card);
 
   useEffect(() => {
     dispatch(getProductItems());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(calculateTotal());
+  }, [cartItems, dispatch]);
 
   if (isLoading) {
     return (
