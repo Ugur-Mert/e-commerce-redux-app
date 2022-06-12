@@ -60,25 +60,31 @@ const cardSlice = createSlice({
     },
     removeItem: (state, action) => {
       const itemId = action.payload;
+      const cartItem = state.cartItems.find(
+        (item) => item.id === action.payload
+      );
       state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
-      state.amount = state.amount - 1;
+      state.amount = state.amount - cartItem.quantity;
     },
+    // increase: (state, { payload }) => {
+    //   if (state.cartItems.find((item) => item.id === payload.id)) {
+    //     state.amount = state.amount + 1;
+    //     state.cartItems[payload.id - 1].quantity++;
+    //   }
+    // },
     increase: (state, { payload }) => {
-      if (state.cartItems.filter((item) => item.id === payload.id)) {
-        state.amount = state.amount + 1;
-        //state.cartItems[payload.id - 1].quantity++;
-        state.cartItems[payload.id - 1].quantity++;
-      }
+      const cartItem = state.cartItems.find((item) => item.id === payload.id);
+      cartItem.quantity = cartItem.quantity + 1;
+      state.amount = state.amount + 1;
     },
     decrease: (state, { payload }) => {
-      state.cartItems.find((item) => item.id === payload.id);
+      const cartItem = state.cartItems.find((item) => item.id === payload.id);
       state.amount = state.amount - 1;
-      state.singleAmount = state.singleAmount - 1;
-      if (state.singleAmount < 1) {
+      cartItem.quantity = cartItem.quantity - 1;
+      if (cartItem.quantity < 1) {
         state.cartItems = state.cartItems.filter(
           (item) => item.id !== payload.id
         );
-        state.singleAmount = 1;
       }
     },
     men: (state) => {

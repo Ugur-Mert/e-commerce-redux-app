@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import SingleCardPage from "./SingleCardPage";
 import { useDispatch } from "react-redux";
 import { removeItem, increase, decrease } from "../../features/card/cardSlice";
 import { FaTrash } from "react-icons/fa";
@@ -9,8 +11,12 @@ export const CartItem = ({ id, image, title, price, quantity }) => {
 
   return (
     <div className="cart" key={id}>
-      <img className="cart-image" src={image} alt={title} />
-      <h5 className="cart-title">{title}</h5>
+      <Link className="link" to={`/product/${id}`} element={<SingleCardPage />}>
+        <img className="cart-image" src={image} alt={title} />
+      </Link>
+      <Link className="link" to={`/product/${id}`} element={<SingleCardPage />}>
+        <h5 className="cart-title">{title}</h5>
+      </Link>
       <p>${price}</p>
       <div>
         <button onClick={() => dispatch(increase({ id }))}>
