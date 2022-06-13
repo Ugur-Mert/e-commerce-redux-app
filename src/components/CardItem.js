@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import "./CardItem.css";
 import SingleCardPage from "./pages/SingleCardPage";
 import { FaStar } from "react-icons/fa";
@@ -8,26 +9,26 @@ import { useDispatch } from "react-redux";
 const CardItem = ({ id, image, title, price, rating }) => {
   const dispatch = useDispatch();
   return (
-    <div className="card-item">
+    <div className="card-item ">
       <Link className="link" to={`/product/${id}`} element={<SingleCardPage />}>
         <div className="card-image-container">
           <img className="card-image" src={image} alt={title} />
         </div>
-        <h4>{title.slice(0, 20)}...</h4>
-        <h4 className="rate-count">
+        <h5>{title.slice(0, 20)}...</h5>
+        <p className="rate-count">
           <FaStar />
           {rating.rate} - ({rating.count})
-        </h4>
-        <h4>${price}</h4>
+        </p>
+        <p>${price}</p>
       </Link>
-      <button
-        className="add-button"
+      <Button
+        variant="outline-primary m-3"
         onClick={() => {
           dispatch(addItem(id));
         }}
       >
         Add To Cart
-      </button>
+      </Button>
     </div>
   );
 };

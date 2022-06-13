@@ -1,8 +1,12 @@
+p {
+  margin: auto;
+  font-size: 1.3rem;
+}
 .cart {
   display: grid;
   align-items: center;
   grid-template-columns: repeat(5, 1fr);
-  margin: 10px 20px;
+  margin: 20px 20px;
   text-align: center;
 }
 .cart-image {
@@ -14,9 +18,10 @@
   text-align: left;
 }
 hr {
+  display: flex;
+  justify-content: center;
   border-color: rgb(39, 36, 36);
   border-width: 0.25px;
-  width: 1200px;
 }
 .cart-footer {
   display: flex;
@@ -29,5 +34,23 @@ hr {
 .cart-empty {
   display: flex;
   justify-content: center;
+  text-align: center;
+}
+
+.cart-button {
+  background: none;
+  border: none;
+}
+
+.quantity {
+  display: grid;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+}
+.amount {
   text-align: center;
 }

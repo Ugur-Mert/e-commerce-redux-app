@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around !important;
   align-items: center;
   background-color: #fff6ea;
 }
@@ -21,8 +21,11 @@
   align-items: center;
   justify-content: center;
 }
+
 .total-amount {
+  position: absolute;
   color: white;
+  top: -0.1rem;
 }
 .nav-icon {
   width: 2rem;

@@ -6,11 +6,11 @@ import {
   getProductItems,
 } from "../src/features/card/cardSlice";
 import CardContainer from "./components/CardContainer";
-import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import SingleCardPage from "./components/pages/SingleCardPage";
 import { Cart } from "./components/pages/Cart";
 import { Category } from "./components/pages/Category";
+import { BootstrapNavbar } from "./components/BootstrapNavbar";
 function App() {
   const { isLoading } = useSelector((state) => state.card);
 
@@ -35,7 +35,8 @@ function App() {
 
   return (
     <main>
-      <Navbar />
+      <BootstrapNavbar />
+
       <Routes>
         <Route path="" element={<CardContainer />} />
         <Route path="category" element={<Category />} />

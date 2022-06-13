@@ -1,4 +1,6 @@
 import CardItem from "./CardItem";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from "react-redux";
 import "./CardContainer.css";
 const CardContainer = () => {
