@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "./Cart.css";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../features/card/cardSlice";
+import { Container, Button, Row, Col } from "react-bootstrap";
 
 export const Cart = (id) => {
   const dispatch = useDispatch();
@@ -21,17 +22,25 @@ export const Cart = (id) => {
   }
 
   return (
-    <div>
-      {cartItems.map((item) => {
-        return <CartItem key={item.id} {...item} />;
-      })}
-      <hr />
-      <div className="cart-footer">
-        <p className="total">
-          Subtotal: <span> $ {total.toFixed(2)}</span>
+    <Container>
+      <Row className="mx-auto text-center mt-5 mb-5">
+        {cartItems.map((item) => {
+          return <CartItem key={item.id} {...item} />;
+        })}
+        <hr />
+        <p className="total mb-3">
+          Subtotal: <span> $ {total.toFixed(2)}</span>{" "}
         </p>
-      </div>
-      <button onClick={() => dispatch(clearCart())}> Clear </button>
-    </div>
+        <Col>
+          <Button
+            variant="outline-danger"
+            onClick={() => dispatch(clearCart())}
+          >
+            {" "}
+            Clear Cart{" "}
+          </Button>
+        </Col>
+      </Row>
+    </Container>
   );
 };
