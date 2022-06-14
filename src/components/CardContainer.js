@@ -1,19 +1,23 @@
 import CardItem from "./CardItem";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from "react-redux";
-import "./CardContainer.css";
+import "./pages/Category.css";
 const CardContainer = () => {
   const { cardItems } = useSelector((store) => store.card);
 
   return (
-    <section className="card">
-      <div className="cards">
+    <Container>
+      <Row className="mx-auto text-center mt-5">
         {cardItems.map((item) => {
-          return <CardItem key={item.id} {...item} />;
+          return (
+            <Col key={item.id} className="m-3 cards text-center">
+              <CardItem key={item.id} {...item} />{" "}
+            </Col>
+          );
         })}
-      </div>
-    </section>
+      </Row>
+    </Container>
   );
 };
 

@@ -1,8 +1,0 @@
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-  gap: 20px;
-  background-color: #ebd8c3;
-  padding-top: 50px;
-}

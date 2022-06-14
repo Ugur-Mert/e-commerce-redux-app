@@ -1,8 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Nav, Navbar, Row, Button, Col } from "react-bootstrap";
+import { Container, Nav, Navbar, Button, Col } from "react-bootstrap";
 import "./BootstrapNavbar.css";
 import { FaShoppingCart, FaShopify } from "react-icons/fa";
 import { Link } from "react-router-dom";
