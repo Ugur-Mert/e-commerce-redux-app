@@ -7,10 +7,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.9;
 }
 
 .modal-window {
   background-color: white;
   background-color: #4987e5;
+
   border-radius: 8px;
 }
