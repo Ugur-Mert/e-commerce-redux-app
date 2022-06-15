@@ -5,6 +5,8 @@ import "./SingleCardPage.css";
 import { FaStar } from "react-icons/fa";
 import { addItem } from "../../features/card/cardSlice";
 import { useDispatch } from "react-redux";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SingleCardPage() {
   const params = useParams();
@@ -17,38 +19,51 @@ export default function SingleCardPage() {
   });
 
   return (
-    <div className="main-single-page">
-      <div className="single-page">
-        <img
-          className="single-image"
-          src={singleProduct.image}
-          alt={singleProduct.title}
-        />
-        <div>
+    <Container>
+      <Row className="mt-5 single-left-container">
+        <Col sm={12} lg={6} className="text-center mb-3">
+          <img
+            className="single-left"
+            src={singleProduct.image}
+            alt={singleProduct.title}
+          />
+        </Col>
+        <Col sm={12} lg={6}>
           <h1>{singleProduct.title}</h1>
-          <div className="single-page-detail">
-            {singleProduct.rating ? (
-              <h5>
-                <FaStar /> {singleProduct.rating.rate}
-              </h5>
-            ) : null}
-            {singleProduct.rating ? (
-              <h5>({singleProduct.rating.count})</h5>
-            ) : null}
-            <h5>Category: {singleProduct.category}</h5>
-          </div>
-          <p>$ {singleProduct.price}</p>
+          <Col>
+            <div className="rating-votee">
+              <Col className="text-center ">
+                {singleProduct.rating ? (
+                  <h5>
+                    <FaStar /> {singleProduct.rating.rate}
+                  </h5>
+                ) : null}
+              </Col>
+              <Col>
+                {singleProduct.rating ? (
+                  <h5>({singleProduct.rating.count})</h5>
+                ) : null}
+              </Col>
+              <Col>
+                <h5>$ {singleProduct.price}</h5>
+              </Col>
+            </div>
+          </Col>
+          <h5>Category: {singleProduct.category}</h5>
           <p className="single-page-description">{singleProduct.description}</p>
-          <button
-            className="single-page-button"
-            onClick={() => {
-              dispatch(addItem(singleProduct.id));
-            }}
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-    </div>
+          <Col className="text-center mt-3">
+            <Button
+              variant="outline-primary"
+              className="single-page-button "
+              onClick={() => {
+                dispatch(addItem(singleProduct.id));
+              }}
+            >
+              Add to Cart
+            </Button>
+          </Col>
+        </Col>
+      </Row>
+    </Container>
   );
 }

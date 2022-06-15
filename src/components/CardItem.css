@@ -1,7 +1,6 @@
 .card-item {
   display: grid;
   justify-items: center;
-
   text-align: center;
   height: 100%;
   width: 250px;

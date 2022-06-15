@@ -5,12 +5,17 @@ import {
   calculateTotal,
   getProductItems,
 } from "../src/features/card/cardSlice";
-import CardContainer from "./components/CardContainer";
 import { Routes, Route } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
+import Placeholder from "react-bootstrap/Placeholder";
+import { Container, Row, Col } from "react-bootstrap";
+
+import CardContainer from "./components/CardContainer";
 import SingleCardPage from "./components/pages/SingleCardPage";
 import { Cart } from "./components/pages/Cart";
 import { Category } from "./components/pages/Category";
 import { BootstrapNavbar } from "./components/BootstrapNavbar";
+
 function App() {
   const { isLoading } = useSelector((state) => state.card);
 
@@ -27,9 +32,24 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="loading">
-        <div className="loader"></div>
-      </div>
+      <Container>
+        <Row>
+          <Col className="mx-auto text-center">
+            <Placeholder as="h1" animation="glow">
+              <Placeholder xs={12} />
+            </Placeholder>
+            <h4 style={{ fontWeight: 400 }}>
+              The process may take a few seconds. Please wait.
+            </h4>
+            <Spinner
+              lg={12}
+              className="spinner"
+              animation="border"
+              variant="primary"
+            />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 
