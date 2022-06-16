@@ -11,9 +11,12 @@ import {
 
 const Footer = () => {
   return (
-    <Navbar className="text-center" bg="primary">
+    <Navbar
+      className="text-center footer  bottom-0 start-50 translate-middle-x"
+      bg="primary"
+    >
       <Container>
-        <Row className="mx-auto text-center footer">
+        <Row className="mx-auto  footer">
           <Col>
             <BsFacebook />
           </Col>

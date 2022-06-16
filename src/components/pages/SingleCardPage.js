@@ -37,7 +37,7 @@ export default function SingleCardPage() {
           </Col>
         </Row>
       ) : (
-        <Row className="mt-5 single-left-container">
+        <Row className=" single-left-container">
           <Col sm={12} lg={6} className="text-center mb-3">
             <img
               className="single-left"

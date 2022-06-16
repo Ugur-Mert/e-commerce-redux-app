@@ -25,9 +25,9 @@ export const Cart = (id) => {
   }
 
   return (
-    <Container>
+    <Container className="cart-container">
       {isOpen ? <ClearModal /> : ""}
-      <Row className="mx-auto text-center mt-5 mb-5">
+      <Row className="mx-auto text-center mb-3">
         {cartItems.map((item) => {
           return <CartItem key={item.id} {...item} />;
         })}

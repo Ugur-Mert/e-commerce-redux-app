@@ -8,6 +8,8 @@ import {
 import { Routes, Route } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Placeholder from "react-bootstrap/Placeholder";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 import CardContainer from "./components/CardContainer";
@@ -57,6 +59,7 @@ function App() {
   return (
     <main>
       <BootstrapNavbar />
+      <ToastContainer autoClose={1500} />
       <Routes>
         <Route path="" element={<CardContainer />} />
         <Route path="category" element={<Category />} />

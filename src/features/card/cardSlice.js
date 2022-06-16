@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const url = "https://fakestoreapi.com/products";
 
@@ -38,12 +39,18 @@ const cardSlice = createSlice({
         );
         cartItem.quantity = cartItem.quantity + 1;
         state.amount = state.amount + 1;
+        toast.info("increased quantity", {
+          position: "top-right",
+        });
       } else {
         state.cartItems.push(
           state.cardItems.find((item) => item.id === itemId)
         );
         state.amount = state.amount + 1;
         state.cardItems.map((obj) => (obj.quantity = 1));
+        toast.success("Added to cart.", {
+          position: "top-right",
+        });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -61,6 +68,9 @@ const cardSlice = createSlice({
       state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
       state.amount = state.amount - cartItem.quantity;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      toast.error("product removed", {
+        position: "top-right",
+      });
     },
 
     increase: (state, { payload }) => {

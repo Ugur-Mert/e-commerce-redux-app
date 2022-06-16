@@ -29,6 +29,8 @@ hr {
   display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .cart-button {
@@ -43,4 +45,12 @@ hr {
 
 .cart-item {
   border-bottom: 1px solid;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: 100vh;
 }
