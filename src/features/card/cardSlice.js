@@ -5,7 +5,9 @@ const url = "https://fakestoreapi.com/products";
 
 const initialState = {
   cardItems: [],
-  cartItems: [],
+  cartItems: localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [],
   cardCategory: [],
   amount: 0,
   total: 0,
@@ -43,11 +45,13 @@ const cardSlice = createSlice({
         state.amount = state.amount + 1;
         state.cardItems.map((obj) => (obj.quantity = 1));
       }
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
     clearCart: (state) => {
       state.cartItems = [];
       state.amount = 0;
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     removeItem: (state, action) => {
       const itemId = action.payload;
@@ -56,12 +60,14 @@ const cardSlice = createSlice({
       );
       state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
       state.amount = state.amount - cartItem.quantity;
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
     increase: (state, { payload }) => {
       const cartItem = state.cartItems.find((item) => item.id === payload.id);
       cartItem.quantity = cartItem.quantity + 1;
       state.amount = state.amount + 1;
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     decrease: (state, { payload }) => {
       const cartItem = state.cartItems.find((item) => item.id === payload.id);
@@ -72,6 +78,7 @@ const cardSlice = createSlice({
           (item) => item.id !== payload.id
         );
       }
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     men: (state) => {
       state.cardCategory = state.cardItems.filter(

@@ -15,6 +15,7 @@ import SingleCardPage from "./components/pages/SingleCardPage";
 import { Cart } from "./components/pages/Cart";
 import { Category } from "./components/pages/Category";
 import { BootstrapNavbar } from "./components/BootstrapNavbar";
+import Footer from "./components/Footer";
 
 function App() {
   const { isLoading } = useSelector((state) => state.card);
@@ -56,7 +57,6 @@ function App() {
   return (
     <main>
       <BootstrapNavbar />
-
       <Routes>
         <Route path="" element={<CardContainer />} />
         <Route path="category" element={<Category />} />
@@ -65,6 +65,7 @@ function App() {
           <Route path=":productId" element={<SingleCardPage />} />
         </Route>
       </Routes>
+      <Footer />
     </main>
   );
 }
