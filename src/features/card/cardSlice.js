@@ -8,7 +8,6 @@ const initialState = {
   cartItems: [],
   cardCategory: [],
   amount: 0,
-  isClicked: false,
   total: 0,
   isLoading: false,
 };
