@@ -87,6 +87,9 @@ const cardSlice = createSlice({
         state.cartItems = state.cartItems.filter(
           (item) => item.id !== payload.id
         );
+        toast.error("product removed", {
+          position: "top-right",
+        });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
