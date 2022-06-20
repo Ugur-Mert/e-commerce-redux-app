@@ -38,7 +38,7 @@ const Navbar = () => {
           </button>
         </Link>
 
-        <Link className="link" to="/">
+        <Link className="link" to="">
           <button className="btn-nav">ALL</button>
         </Link>
         <Link className="link" to="Category">

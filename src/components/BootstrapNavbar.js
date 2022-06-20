@@ -6,6 +6,7 @@ import "./BootstrapNavbar.css";
 import { FaShoppingCart, FaShopify } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { men, women, jewelery, electronics } from "../features/card/cardSlice";
+import Logo from "./images/LOGO.png";
 
 export const BootstrapNavbar = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export const BootstrapNavbar = () => {
             }}
             to="/"
           >
-            <FaShopify /> LOGO !
+            <img src={Logo} alt="logo" />
           </Link>
         </Col>
 
@@ -55,7 +56,7 @@ export const BootstrapNavbar = () => {
                 </Button>
               </Link>
               <hr />
-              <Link to="/">
+              <Link to="products">
                 <Button
                   className=" mx-auto  category-btn"
                   size="sm"

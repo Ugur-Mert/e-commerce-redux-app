@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col } from "react-bootstrap";
 
+import Home from "./components/pages/Home";
 import CardContainer from "./components/CardContainer";
 import SingleCardPage from "./components/pages/SingleCardPage";
 import { Cart } from "./components/pages/Cart";
@@ -61,7 +62,8 @@ function App() {
       <BootstrapNavbar />
       <ToastContainer autoClose={500} />
       <Routes>
-        <Route path="" element={<CardContainer />} />
+        <Route path="/" element={<Home />} />
+        <Route path="products" element={<CardContainer />} />
         <Route path="category" element={<Category />} />
         <Route path="cart" element={<Cart />} />
         <Route path="product" element={<SingleCardPage />}>
