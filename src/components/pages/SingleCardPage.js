@@ -23,7 +23,15 @@ export default function SingleCardPage() {
   return (
     <Container>
       {singleProduct.length === 0 ? (
-        <Row className="mx-auto text-center mb-5">
+        <Row
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "100vh",
+          }}
+          className="mx-auto text-center mb-5"
+        >
           <Col className="mt-5">
             <Spinner
               className="spinner "
