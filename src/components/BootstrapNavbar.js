@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Nav, Navbar, Button, Col } from "react-bootstrap";
+import {
+  Container,
+  Nav,
+  Navbar,
+  Button,
+  Col,
+  Row,
+  Form,
+  FormControl,
+} from "react-bootstrap";
 import "./BootstrapNavbar.css";
-import { FaShoppingCart, FaShopify } from "react-icons/fa";
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { men, women, jewelery, electronics } from "../features/card/cardSlice";
+import {
+  men,
+  women,
+  jewelery,
+  electronics,
+  filteredProducts,
+} from "../features/card/cardSlice";
 import Logo from "./images/LOGO.png";
 
 export const BootstrapNavbar = () => {
   const dispatch = useDispatch();
   const amount = useSelector((store) => store.card.amount);
+  const inputRef = useRef("");
+
+  const filterProducts = () => {
+    dispatch(filteredProducts(inputRef.current.value));
+  };
 
   return (
     <Navbar className="text-center" bg="primary" expand="lg">
@@ -30,7 +50,23 @@ export const BootstrapNavbar = () => {
         </Col>
 
         <Col>
+          <Row className="mb-3">
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                ref={inputRef}
+                onChange={filterProducts}
+              />
+              <Button variant="outline-light">
+                <FaSearch />{" "}
+              </Button>
+            </Form>
+          </Row>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto text-center ">
               <hr />

@@ -6,6 +6,7 @@ const url = "https://fakestoreapi.com/products";
 
 const initialState = {
   cardItems: [],
+  cardItemsTemp: [],
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : [],
@@ -124,6 +125,11 @@ const cardSlice = createSlice({
       state.amount = amount;
       state.total = total;
     },
+    filteredProducts: (state, action) => {
+      state.cardItems = state.cardItemsTemp.filter((product) =>
+        product.title.toLowerCase().includes(action.payload)
+      );
+    },
   },
   extraReducers: {
     [getProductItems.pending]: (state) => {
@@ -132,6 +138,7 @@ const cardSlice = createSlice({
     [getProductItems.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.cardItems = action.payload;
+      state.cardItemsTemp = action.payload;
     },
     [getProductItems.rejected]: (state) => {
       state.isLoading = false;
@@ -150,6 +157,7 @@ export const {
   women,
   jewelery,
   electronics,
+  filteredProducts,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;

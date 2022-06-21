@@ -12,22 +12,18 @@ import Spinner from "react-bootstrap/Spinner";
 export default function SingleCardPage() {
   const params = useParams();
   const [singleProduct, setSingleProduct] = useState([]);
-  const [singleLoading, setSingleLoading] = useState(false);
+
   const url = `https://fakestoreapi.com/products/${params.productId}`;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setSingleLoading(true);
     axios.get(url).then((res) => setSingleProduct(res.data));
-    setTimeout(() => {
-      setSingleLoading(false);
-    }, 2500);
   }, [url]);
 
   return (
     <Container>
-      {singleLoading ? (
-        <Row className="mx-auto text-center">
+      {singleProduct.length === 0 ? (
+        <Row className="mx-auto text-center mb-5">
           <Col className="mt-5">
             <Spinner
               className="spinner "
