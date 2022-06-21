@@ -51,18 +51,15 @@ export const BootstrapNavbar = () => {
 
         <Col>
           <Row className="mb-3">
-            <Form className="d-flex">
+            <Form className="d-flex ">
               <FormControl
                 type="search"
-                placeholder="Search"
+                placeholder="Search "
                 className="me-2"
                 aria-label="Search"
                 ref={inputRef}
                 onChange={filterProducts}
               />
-              <Button variant="outline-light">
-                <FaSearch />{" "}
-              </Button>
             </Form>
           </Row>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
