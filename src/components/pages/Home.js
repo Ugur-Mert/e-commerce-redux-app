@@ -44,7 +44,6 @@ const Home = () => {
 
         <Col className="m-auto">
           <p>
-            {" "}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium
             aenean pharetra magna ac placerat vestibulum lectus mauris ultrices.

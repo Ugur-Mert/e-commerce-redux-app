@@ -75,7 +75,7 @@ export const BootstrapNavbar = () => {
                   onClick={() => dispatch(men())}
                   className=" mx-auto category-btn"
                   size="sm"
-                  variant="link"
+                  variant="a-link"
                 >
                   MEN
                 </Button>
@@ -86,7 +86,7 @@ export const BootstrapNavbar = () => {
                   onClick={() => dispatch(women())}
                   className=" mx-auto  category-btn"
                   size="sm"
-                  variant="link"
+                  variant="a-link"
                 >
                   WOMEN
                 </Button>
@@ -96,7 +96,7 @@ export const BootstrapNavbar = () => {
                 <Button
                   className=" mx-auto  category-btn"
                   size="sm"
-                  variant="link"
+                  variant="a-link"
                 >
                   ALL
                 </Button>
@@ -107,7 +107,7 @@ export const BootstrapNavbar = () => {
                   onClick={() => dispatch(electronics())}
                   className=" mx-auto  category-btn"
                   size="sm"
-                  variant="link"
+                  variant="a-link"
                 >
                   ELECTRONICS
                 </Button>
@@ -118,7 +118,7 @@ export const BootstrapNavbar = () => {
                   onClick={() => dispatch(jewelery())}
                   className=" mx-auto  category-btn"
                   size="sm"
-                  variant="link"
+                  variant="a-link"
                 >
                   JEWELRY
                 </Button>

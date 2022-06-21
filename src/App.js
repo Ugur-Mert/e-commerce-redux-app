@@ -19,6 +19,8 @@ import { Cart } from "./components/pages/Cart";
 import { Category } from "./components/pages/Category";
 import { BootstrapNavbar } from "./components/BootstrapNavbar";
 import Footer from "./components/Footer";
+import WhoWeAre from "./components/pages/WhoWeAre";
+import ContactUs from "./components/pages/ContactUs";
 
 function App() {
   const { isLoading } = useSelector((state) => state.card);
@@ -65,6 +67,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="products" element={<CardContainer />} />
         <Route path="category" element={<Category />} />
+        <Route path="whoweare" element={<WhoWeAre />} />
+        <Route path="contactus" element={<ContactUs />} />
         <Route path="cart" element={<Cart />} />
         <Route path="product" element={<SingleCardPage />}>
           <Route path=":productId" element={<SingleCardPage />} />

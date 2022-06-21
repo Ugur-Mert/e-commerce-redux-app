@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Navbar, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Container, Navbar, Row, Col, Button } from "react-bootstrap";
 import "./BootstrapNavbar.css";
 import {
   BsFacebook,
@@ -20,38 +21,53 @@ const Footer = () => {
       <Container>
         <Col>
           <h4 style={{ textDecoration: "underline" }}>Online Store</h4>
-          <p>Who we are</p>
-          <p>Contact us</p>
+          <Row>
+            <Link to="whoweare">
+              <Button className="category-btn" variant="a-link">
+                Who we are
+              </Button>
+            </Link>
+          </Row>
+          <Row>
+            <Link to="contactus">
+              <Button className="category-btn" variant="a-link">
+                Contact us
+              </Button>
+            </Link>
+          </Row>
         </Col>
 
-        <Row className="mx-auto  footer-middle">
+        <Col className="mx-auto  footer-middle">
           <h4 style={{ textDecoration: "underline" }}>Social Media</h4>
-          <Col>
-            <BsFacebook />
-          </Col>
-          <Col>
-            <BsInstagram />
-          </Col>
-          <Col>
-            <BsTwitter />
-          </Col>
-          <Col>
-            <BsYoutube />
-          </Col>
-          <Col>
-            <BsLinkedin />
-          </Col>
-        </Row>
+          <Row>
+            <Col>
+              <BsFacebook />
+            </Col>
+            <Col>
+              <BsInstagram />
+            </Col>
+            <Col>
+              <BsTwitter />
+            </Col>
+            <Col>
+              <BsYoutube />
+            </Col>
+            <Col>
+              <BsLinkedin />
+            </Col>
+          </Row>
+        </Col>
+
         <Col>
           <h4 style={{ textDecoration: "underline" }}>Secure shopping</h4>
-          <Row>
-            <Col className="text-end">
+          <Row className="mx-auto">
+            <Col>
               <SiAmericanexpress />
             </Col>
             <Col>
               <SiVisa />
             </Col>
-            <Col className="text-start">
+            <Col>
               <SiMastercard />
             </Col>
           </Row>
