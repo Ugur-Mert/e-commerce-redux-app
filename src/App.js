@@ -40,19 +40,16 @@ function App() {
     return (
       <Container>
         <Row>
-          <Col className="mx-auto text-center">
-            <Placeholder as="h1" animation="glow">
-              <Placeholder xs={12} />
-            </Placeholder>
-            <h4 style={{ fontWeight: 400 }}>
-              The process may take a few seconds. Please wait.
-            </h4>
-            <Spinner
-              lg={12}
-              className="spinner"
-              animation="border"
-              variant="primary"
-            />
+          <Col
+            style={{
+              display: "grid",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "100vh",
+            }}
+            className="mx-auto text-center"
+          >
+            <Spinner animation="grow" size="xxl" variant="primary" />
           </Col>
         </Row>
       </Container>
