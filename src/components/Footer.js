@@ -9,6 +9,8 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 
+import { SiAmericanexpress, SiVisa, SiMastercard } from "react-icons/si";
+
 const Footer = () => {
   return (
     <Navbar
@@ -16,7 +18,14 @@ const Footer = () => {
       bg="primary"
     >
       <Container>
-        <Row className="mx-auto  footer">
+        <Col>
+          <h4 style={{ textDecoration: "underline" }}>Online Store</h4>
+          <p>Who we are</p>
+          <p>Contact us</p>
+        </Col>
+
+        <Row className="mx-auto  footer-middle">
+          <h4 style={{ textDecoration: "underline" }}>Social Media</h4>
           <Col>
             <BsFacebook />
           </Col>
@@ -33,6 +42,20 @@ const Footer = () => {
             <BsLinkedin />
           </Col>
         </Row>
+        <Col>
+          <h4 style={{ textDecoration: "underline" }}>Secure shopping</h4>
+          <Row>
+            <Col className="text-end">
+              <SiAmericanexpress />
+            </Col>
+            <Col>
+              <SiVisa />
+            </Col>
+            <Col className="text-start">
+              <SiMastercard />
+            </Col>
+          </Row>
+        </Col>
       </Container>
     </Navbar>
   );
