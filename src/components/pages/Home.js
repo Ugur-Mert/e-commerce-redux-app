@@ -28,35 +28,37 @@ const Home = () => {
         </Col>
       </Row>
       <hr />
-      <Row className=" home mx-auto m-0">
-        <Col className="img-txt text-center mx-auto  ">
-          <img className="home-img  " src={Lady} alt="lady" />
-        </Col>
-        <Col className=" img-txt mx-auto m-auto">
-          <p className="text-center arrival">NEW ARRIVALS</p>
-          <p className="just-for">JUST FOR </p>
-          <p className="you">You...</p>
-          <Row>
-            <Col className="col-8 online">
-              <p>
-                FOR ONLINE <br />
-                ORDER
-              </p>
-            </Col>
-            <Col className="col-4 thirty text-center">
-              <p>30%</p>
-              <p>OFF</p>
-            </Col>
-            <Row className="mt-5 mx-auto text-center">
-              <Col>
-                <Link to="products">
-                  <Button variant="outline-primary">Let's Shop!</Button>
-                </Link>
+      <section className="section-1">
+        <Row className=" home mx-auto m-0 bg-warning rounded">
+          <Col className="img-txt text-center mx-auto  ">
+            <img className="home-img  " src={Lady} alt="lady" />
+          </Col>
+          <Col className=" img-txt mx-auto m-auto">
+            <p className="text-center arrival">NEW ARRIVALS</p>
+            <p className="just-for">JUST FOR </p>
+            <p className="you">You...</p>
+            <Row className="mx-auto ">
+              <Col className="col-8 online rounded-start">
+                <p>
+                  FOR ONLINE <br />
+                  ORDER
+                </p>
               </Col>
+              <Col className="col-4  thirty text-center rounded-end">
+                <p>30%</p>
+                <p>OFF</p>
+              </Col>
+              <Row className="mt-5 mx-auto text-center">
+                <Col>
+                  <Link to="products">
+                    <Button variant="outline-primary">Let's Shop!</Button>
+                  </Link>
+                </Col>
+              </Row>
             </Row>
-          </Row>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </section>
       <hr />
       <Row className=" mb-3">
         <p className="text-center just-for m-3">Fast Delivery</p>
