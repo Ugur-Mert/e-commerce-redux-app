@@ -21,7 +21,7 @@ export const getProductItems = createAsyncThunk(
   async () => {
     try {
       const res = await axios(url);
-      console.log(res.data);
+
       return res.data;
     } catch (error) {}
   }
@@ -61,6 +61,7 @@ const cardSlice = createSlice({
       state.amount = 0;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     removeItem: (state, action) => {
       const itemId = action.payload;
       const cartItem = state.cartItems.find(
@@ -80,6 +81,7 @@ const cardSlice = createSlice({
       state.amount = state.amount + 1;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     decrease: (state, { payload }) => {
       const cartItem = state.cartItems.find((item) => item.id === payload.id);
       state.amount = state.amount - 1;
@@ -94,21 +96,25 @@ const cardSlice = createSlice({
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     men: (state) => {
       state.cardCategory = state.cardItems.filter(
         (item) => item.category === "men's clothing"
       );
     },
+
     women: (state) => {
       state.cardCategory = state.cardItems.filter(
         (item) => item.category === "women's clothing"
       );
     },
+
     jewelery: (state) => {
       state.cardCategory = state.cardItems.filter(
         (item) => item.category === "jewelery"
       );
     },
+
     electronics: (state) => {
       state.cardCategory = state.cardItems.filter(
         (item) => item.category === "electronics"
@@ -125,6 +131,7 @@ const cardSlice = createSlice({
       state.amount = amount;
       state.total = total;
     },
+
     filteredProducts: (state, action) => {
       state.cardItems = state.cardItemsTemp.filter((product) =>
         product.title.toLowerCase().includes(action.payload)

@@ -13,3 +13,7 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.single-page-description {
+  text-align: justify;
+}

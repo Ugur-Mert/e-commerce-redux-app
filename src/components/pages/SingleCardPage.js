@@ -51,9 +51,9 @@ export default function SingleCardPage() {
           </Col>
           <Col sm={12} lg={6}>
             <h1>{singleProduct.title}</h1>
-            <Col>
+            <Col className="m-4 text-center ">
               <div className="rating-votee">
-                <Col className="text-center ">
+                <Col>
                   {singleProduct.rating ? (
                     <h5>
                       <FaStar /> {singleProduct.rating.rate}
@@ -71,10 +71,10 @@ export default function SingleCardPage() {
               </div>
             </Col>
             <h5>Category: {singleProduct.category}</h5>
-            <p className="single-page-description">
+            <p className="single-page-description ">
               {singleProduct.description}
             </p>
-            <Col className="text-center mt-3">
+            <Col className="text-center m-3">
               <Button
                 variant="outline-primary"
                 className="single-page-button "
