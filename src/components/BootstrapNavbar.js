@@ -128,7 +128,7 @@ export const BootstrapNavbar = () => {
           <Link style={{ color: "white", textDecoration: "none" }} to="cart">
             <p>
               <FaShoppingCart /> Cart{" "}
-              {amount > 0 ? <span className="amount"> {amount} </span> : ""}
+              {amount > 0 ? <span className="amount"> : {amount} </span> : ""}
             </p>
           </Link>
         </Col>

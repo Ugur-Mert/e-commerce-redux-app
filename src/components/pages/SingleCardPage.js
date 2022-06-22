@@ -41,7 +41,7 @@ export default function SingleCardPage() {
           </Col>
         </Row>
       ) : (
-        <Row className=" single-left-container">
+        <Row className=" single-left-container border border-primary m-3 rounded">
           <Col sm={12} lg={6} className="text-center mb-3">
             <img
               className="single-left"
