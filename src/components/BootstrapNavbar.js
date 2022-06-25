@@ -12,7 +12,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import "./BootstrapNavbar.css";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import {
   men,
@@ -21,7 +21,11 @@ import {
   electronics,
   filteredProducts,
 } from "../features/card/cardSlice";
+
+import { openLogin } from "../features/modals/modalSlice";
+
 import Logo from "./images/LOGO.png";
+import LoginModal from "./Modals/LoginModal";
 
 export const BootstrapNavbar = () => {
   const dispatch = useDispatch();
@@ -32,8 +36,11 @@ export const BootstrapNavbar = () => {
     dispatch(filteredProducts(inputRef.current.value));
   };
 
+  const { isLoginOpen } = useSelector((store) => store.modal);
+
   return (
     <Navbar className="text-center" bg="primary" expand="lg">
+      {isLoginOpen ? <LoginModal /> : ""}
       <Container>
         <Col className="align-middle">
           <Link
@@ -125,12 +132,34 @@ export const BootstrapNavbar = () => {
           </Navbar.Collapse>
         </Col>
         <Col>
-          <Link style={{ color: "white", textDecoration: "none" }} to="cart">
-            <p>
-              <FaShoppingCart /> Cart{" "}
-              {amount > 0 ? <span className="amount"> : {amount} </span> : ""}
-            </p>
-          </Link>
+          <Row className="mx-auto">
+            <Col
+              className="col-6 text-end  "
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <Button
+                variant="outline-dark"
+                onClick={() => dispatch(openLogin())}
+              >
+                <FaUserAlt />
+              </Button>
+            </Col>
+            <Col className="col-6 ">
+              <p>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="cart"
+                >
+                  <FaShoppingCart /> Cart{" "}
+                  {amount > 0 ? (
+                    <span className="amount"> : {amount} </span>
+                  ) : (
+                    ""
+                  )}
+                </Link>
+              </p>
+            </Col>
+          </Row>
         </Col>
       </Container>
     </Navbar>

@@ -9,6 +9,7 @@
   background-color: white;
   cursor: pointer;
 }
+
 .card-image {
   margin-top: 10px;
   height: 150px;
@@ -16,7 +17,6 @@
   object-fit: contain;
 }
 .card-image-container :hover {
-  z-index: 100;
   animation: scale 0.4s linear;
   animation-fill-mode: forwards;
 }
@@ -45,4 +45,9 @@
 .add-button {
   margin-bottom: 15px;
   cursor: pointer;
+}
+
+.card-container {
+  display: grid;
+  justify-content: center;
 }
