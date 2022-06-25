@@ -7,7 +7,7 @@ import {
 } from "../src/features/card/cardSlice";
 import { Routes, Route } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
-import Placeholder from "react-bootstrap/Placeholder";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -21,6 +21,7 @@ import { BootstrapNavbar } from "./components/BootstrapNavbar";
 import Footer from "./components/Footer";
 import WhoWeAre from "./components/pages/WhoWeAre";
 import ContactUs from "./components/pages/ContactUs";
+import LogIn from "./components/pages/LogIn";
 
 function App() {
   const { isLoading } = useSelector((state) => state.card);
@@ -60,6 +61,7 @@ function App() {
     <main>
       <BootstrapNavbar />
       <ToastContainer autoClose={500} />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="products" element={<CardContainer />} />
@@ -67,6 +69,7 @@ function App() {
         <Route path="whoweare" element={<WhoWeAre />} />
         <Route path="contactus" element={<ContactUs />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="login" element={<LogIn />} />
         <Route path="product" element={<SingleCardPage />}>
           <Route path=":productId" element={<SingleCardPage />} />
         </Route>

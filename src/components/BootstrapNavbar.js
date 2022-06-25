@@ -22,10 +22,7 @@ import {
   filteredProducts,
 } from "../features/card/cardSlice";
 
-import { openLogin } from "../features/modals/modalSlice";
-
 import Logo from "./images/LOGO.png";
-import LoginModal from "./Modals/LoginModal";
 
 export const BootstrapNavbar = () => {
   const dispatch = useDispatch();
@@ -36,11 +33,8 @@ export const BootstrapNavbar = () => {
     dispatch(filteredProducts(inputRef.current.value));
   };
 
-  const { isLoginOpen } = useSelector((store) => store.modal);
-
   return (
     <Navbar className="text-center" bg="primary" expand="lg">
-      {isLoginOpen ? <LoginModal /> : ""}
       <Container>
         <Col className="align-middle">
           <Link
@@ -137,11 +131,13 @@ export const BootstrapNavbar = () => {
               className="col-6 text-end  "
               style={{ color: "white", textDecoration: "none" }}
             >
-              <Button
-                variant="outline-dark"
-                onClick={() => dispatch(openLogin())}
-              >
-                <FaUserAlt />
+              <Button variant="outline-light">
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="login"
+                >
+                  <FaUserAlt />
+                </Link>
               </Button>
             </Col>
             <Col className="col-6 ">
