@@ -8,19 +8,6 @@ const LogIn = () => {
     <Container>
       <Row>
         <Col className="col-4 mx-auto m-5 fw-semibold shadow ">
-          <Row className="mb-3 mt-0 text-center justify-content-between ">
-            <Col className="col-5">
-              <Row>
-                <Button variant="gray">Login</Button>
-              </Row>
-            </Col>
-
-            <Col className="col-5">
-              <Row>
-                <Button variant="gray">Sign Up</Button>
-              </Row>
-            </Col>
-          </Row>
           <Row>
             <Form className="p-5 ">
               <Form.Group className="mb-3 " controlId="formBasicEmail">
@@ -34,14 +21,34 @@ const LogIn = () => {
               </Form.Group>
 
               <Col className="text-center  mx-auto">
-                <Button variant="primary" className="mt-3" type="submit">
+                <Button
+                  variant="outline-primary"
+                  className="mt-3"
+                  type="submit"
+                >
                   Login
                 </Button>
               </Col>
             </Form>
           </Row>
-          <hr />
-
+          <Row>
+            <Col className="col-5">
+              {" "}
+              <hr />
+            </Col>
+            <Col className="col-2">
+              <p className="text-center">or</p>
+            </Col>
+            <Col className="col-5">
+              {" "}
+              <hr />
+            </Col>
+          </Row>
+          <Col className="text-center mx-auto">
+            <Button variant="outline-primary" className="mt-3" type="submit">
+              Sign Up
+            </Button>
+          </Col>
           <Row className="justify-content-around text-center text-primary fs-3 p-5">
             <Col>
               <BsFacebook />

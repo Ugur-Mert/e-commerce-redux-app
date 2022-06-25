@@ -128,17 +128,17 @@ export const BootstrapNavbar = () => {
         <Col>
           <Row className="mx-auto">
             <Col
-              className="col-6 text-end  "
+              className="col-6 text-end fw-3 "
               style={{ color: "white", textDecoration: "none" }}
             >
-              <Button variant="outline-light">
+              <p>
                 <Link
                   style={{ color: "white", textDecoration: "none" }}
                   to="login"
                 >
                   <FaUserAlt />
                 </Link>
-              </Button>
+              </p>
             </Col>
             <Col className="col-6 ">
               <p>
