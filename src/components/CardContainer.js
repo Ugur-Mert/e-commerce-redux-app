@@ -8,12 +8,7 @@ const CardContainer = () => {
 
   return (
     <Container>
-      <Row
-        style={{
-          minHeight: "100vh",
-        }}
-        className="mx-auto text-center mt-5 mb-5"
-      >
+      <Row className="mx-auto text-center ">
         {cardItems.map((item) => {
           return (
             <Col key={item.id} className="m-3 card-container  text-center">

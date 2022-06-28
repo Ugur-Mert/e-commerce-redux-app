@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Navbar, Row, Col, Button } from "react-bootstrap";
+
 import "./BootstrapNavbar.css";
+
+import { Container, Navbar, Row, Col, Button } from "react-bootstrap";
+
 import {
   BsFacebook,
   BsInstagram,
